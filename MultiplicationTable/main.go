@@ -18,7 +18,6 @@ func MultiplicationTable(size int) [][]int {
 			res[i] = append(res[i], 0)
 			for k := 1; k <= i+1; k++ {
 				for m := 1; m <= j+1; m++ {
-					//res[i][j] = k
 					res[i][j] = k * m
 				}
 			}
