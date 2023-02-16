@@ -2,18 +2,30 @@ package main
 
 import (
 	"fmt"
-	"strings"
+	//"strconv"
 )
 
 func main() {
-	var b strings.Builder
+	number := 130
+	fmt.Println(itoa(number))
 
-	for i := 33; i >= 1; i-- {
-		b.WriteString("Код")
-		b.WriteRune('ь')
+}
+
+func itoa(num int) string {
+	var ans string
+	var negative = ""
+	
+	if num == 0{
+		ans = "0"
 	}
-
-	result := b.String()
-	fmt.Println(result)
-
+	if num < 0 {
+		negative = "-"
+		num = 0 - num
+	}
+	for num > 0 {
+		num1 := num % 10
+		num /= 10
+		ans = string('0'+num1) + ans
+	}
+	return negative + ans
 }
