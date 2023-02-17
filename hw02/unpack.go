@@ -56,6 +56,5 @@ func Unpack(start string) string {
 			}
 		}
 	}
-	res := result.String()
-	return res
+	return result.String()
 }
