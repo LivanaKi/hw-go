@@ -22,4 +22,5 @@ func firstNonRepeating(str string) string {
 
 		}
 	}
-	return res}
+	return res
+}
