@@ -2,51 +2,46 @@ package main
 
 import (
 	"fmt"
-	"os"
+	"errors"
 	"strconv"
 	"strings"
 	"unicode"
 )
-
+var ErrInvalidString = errors.New("invalid string")
 func main() {
-	var start string
-	fmt.Println("Please enter string: ")
-
-	fmt.Fscan(os.Stdin, &start)
-	//start := ""
-	fmt.Println("Unpacked string: ", Unpack(start))
+	start := "aaa10b"
+	result, err := Unpack(start)
+	if err == nil{
+	fmt.Println("Unpacked string:", result)
+	}else{
+		fmt.Println("Unpacked string:", err)
+	}
 }
 
-func Unpack(start string) string {
+func Unpack(start string) (string, error) {
+
 	var result strings.Builder
+
 	if len(start) == 0 {
-		result.WriteString("")
+		return "", nil
 	} else {
 		for i, solution := range start {
 			if unicode.IsNumber(rune((start[0]))) {
-				result.Reset()
-				result.WriteString("Don't correct")
-				break
-			}
-
-			if unicode.IsDigit(solution) {
+				return "", ErrInvalidString
+			} else if unicode.IsDigit(solution) {
 				num, _ := strconv.Atoi(string(start[i]))
 				if num == 1 {
 					form := start[i+1]
 					if unicode.IsDigit(rune(form)) {
 						num1, _ := strconv.Atoi(string(start[i+1]))
 						if num1 == 0 {
-							result.Reset()
-							result.WriteString("Don't correct")
-							break
+							return "", ErrInvalidString
 						}
 
 					}
 				}
 				if num == 0 {
-					result.Reset()
-					result.WriteString("Don't correct")
-					break
+					return "", ErrInvalidString
 				}
 				result.WriteString(strings.Repeat(string(start[i-1]), num-1))
 
@@ -56,5 +51,5 @@ func Unpack(start string) string {
 			}
 		}
 	}
-	return result.String()
+	return result.String(), nil
 }
