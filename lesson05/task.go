@@ -20,7 +20,7 @@ func (i *IntStack) Pop() int {
 
 func main() {
 	s := IntStack{}
-	s.Push(10)
+	s.Push(10)	
 	s.Push(20)
 	s.Push(30)
 	fmt.Printf("epected 30, got %d\n", s.Pop())
