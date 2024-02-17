@@ -7,6 +7,20 @@ import (
 )
 
 func main(){
+	var graph = map[string][]string{
+		"you":    []string{"alice", "bob", "claire"},
+		"bob":    []string{"alice","anuj", "peggym"},
+		"alice":  []string{"peggym"},
+		"claire": []string{"jonny", "tho"},
+		"anuj":   []string{},
+		"peggym":  []string{},
+		"tho":   []string{},
+		"jonny":  []string{},
+	}
+
+	fmt.Println(sum.Graph(graph))
+
+/*
 	for i := 1; i < 100; i++{
 		switch i != 0 {
 		case i%3 == 0 && i%5 == 0:
@@ -45,5 +59,5 @@ func main(){
 	fmt.Println()
 	
 	sum.Highlow(2, 0)
-	fmt.Println("Program finished successfully!")
+	fmt.Println("Program finished successfully!")*/
 }
