@@ -5,22 +5,30 @@ import (
 )
 
 func itoa(i int) (s string) {
-	var negativ = ""
+	var current int
+	var negative int
 
-	if i < 0 {
-		negativ = "-"
-		i = 0 - i
+	if i < 0{
+		i *= -1
+		negative = -1
 	}
+
 	if i == 0 {
 		return "0"
 	}
-	if i > 0 {
-		tmp := i % 10
+
+	for i != 0 {
+		current = i % 10
 		i /= 10
-		s += string('0' + tmp)
+		
+		s = string('0' + current) + s
 	}
 
-	return negativ + s
+	if negative == -1{
+		s = "-" + s
+	}
+	
+	return s
 }
 
 func main() {
@@ -33,7 +41,7 @@ func main() {
 		{0, "0"},
 		{22, "22"},
 		{32432523, "32432523"},
-		{-33, "-33"},
+		{-35, "-35"},
 	}
 	for _, t := range test {
 		if t.s == itoa(t.i) {

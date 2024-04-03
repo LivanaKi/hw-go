@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 )
-
+/*
 type IntStack struct {
 	arrArr []int
 }
@@ -26,4 +26,4 @@ func main() {
 	fmt.Printf("epected 30, got %d\n", s.Pop())
 	fmt.Printf("epected 20, got %d\n", s.Pop())
 	fmt.Printf("epected 10, got %d\n", s.Pop())
-}
+}*/

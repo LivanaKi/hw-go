@@ -17,12 +17,14 @@ func main() {
 		"fin":   map[string]int{},
 	}
 
+	//will be updated during operation
 	var costs = map[string]int{
 		"a":   6,
 		"b":   2,
 		"fin": math.MaxInt32,
 	}
 
+	//will be updated during operation
 	var parents = map[string]string{
 		"a":   "start",
 		"b":   "start",
