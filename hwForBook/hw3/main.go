@@ -10,7 +10,7 @@ import (
 func main() {
 	var f *os.File
 	f = os.Stdin
-	defer f.Close()
+	defer f.Close() 
 
 	scanner := bufio.NewScanner(f)
 
